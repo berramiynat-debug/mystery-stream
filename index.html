@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MysteryStream</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-left">
+            <div class="logo">MYSTERYSTREAM</div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Psychological Thrillers</a></li>
+                <li><a href="#">Medical Mysteries</a></li>
+                <li><a href="#">My List</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <i data-lucide="search"></i>
+            <i data-lucide="bell"></i>
+            <div class="profile-icon"></div>
+        </div>
+    </nav>
+
+    <!-- Main Catalog View -->
+    <main id="catalog-view">
+        <header class="hero" style="background-image: url('assets/hero_bg.png');">
+            <div class="hero-vignette"></div>
+            <div class="hero-content">
+                <div class="hero-logo-text">THE GUEST HOUSE</div>
+                <div class="hero-meta">
+                    <span class="match">98% Match</span>
+                    <span class="year">2026</span>
+                    <span class="rating">18+</span>
+                    <span class="duration">30 Stages</span>
+                    <span class="hd">INTERACTIVE</span>
+                </div>
+                <p class="hero-description">Six guests snowed in at an isolated luxury cabin. One is dead. You play as a guest whose memories of the night before are missing. Every clue you uncover might be a lie you told yourself.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="window.app.playGame('feeney_1')">
+                        <i data-lucide="play" fill="black"></i> Play Now
+                    </button>
+                    <button class="btn btn-secondary">
+                        <i data-lucide="info"></i> More Info
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <section class="row" id="feeney-section">
+            <h2 class="row-title">Alice Feeney's Twisted Mind</h2>
+            <div class="row-container" id="feeney-row">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </section>
+
+         <section class="row" id="mcfadden-section">
+            <h2 class="row-title">Freida McFadden's Domestic Nightmares</h2>
+            <div class="row-container" id="mcfadden-row">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </section>
+
+        <section class="row" id="gerritsen-section">
+            <h2 class="row-title">Tess Gerritsen's Medical Autopsies</h2>
+            <div class="row-container" id="gerritsen-row">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </section>
+
+        <section class="row hidden" id="mylist-section" style="display: none;">
+            <h2 class="row-title">My List</h2>
+            <div class="row-container" id="mylist-row">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Interactive Game View Overlay -->
+    <div id="game-view" class="game-overlay hidden">
+        <button class="close-game" onclick="window.app.closeGame()">
+            <i data-lucide="arrow-left"></i> Back to Browse
+        </button>
+        <div class="game-container">
+            <!-- Visual Aid Area -->
+            <div class="game-visual" id="game-visual">
+               <img id="game-image" src="" alt="Scene Visual">
+               <div class="visual-gradient"></div>
+               <div id="stage-tracker" style="position:absolute; bottom:30px; left:30px; color:white; font-size:1.5rem; font-weight:bold; z-index: 20;">Stage: 1 / 30</div>
+            </div>
+            
+            <!-- Text and Interaction Area -->
+            <div class="game-content">
+                <div class="game-text" id="game-text">
+                    <!-- Scene text injected here -->
+                </div>
+                <div class="game-choices" id="game-choices">
+                    <!-- Choices injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Files -->
+    <script src="data/feeney.js"></script>
+    <script src="data/mcfadden.js"></script>
+    <script src="data/gerritsen.js"></script>
+    
+    <!-- Engine -->
+    <script src="app.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+</body>
+</html>
